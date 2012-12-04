@@ -1,11 +1,11 @@
 require 'rubygems'
 require 'sinatra'
 
-Sinatra::Application.default_options.merge!(
+Sinatra::Base.set(
   :views => File.join(File.dirname(__FILE__), 'views'),
   :run => false,
   :env => ENV['RACK_ENV']
 )
 
-require 'main'
-run Sinatra.application
+require "./main"
+run Sinatra::Application

@@ -2,7 +2,9 @@ require 'rubygems'
 require 'spec'
 require 'sequel'
 
-Sequel.sqlite
+Sequel.postgres('rdrblog', :user=>'bacatuba',
+ :password=>'123456',:host=>'localhost',
+ :port=>5432, :max_connections=>10)
 
 $LOAD_PATH.unshift(File.dirname(__FILE__) + '/../lib')
 require 'post'

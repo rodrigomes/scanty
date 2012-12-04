@@ -5,7 +5,8 @@ $LOAD_PATH.unshift File.dirname(__FILE__) + '/vendor/sequel'
 require 'sequel'
 
 configure do
-	Sequel.connect(ENV['DATABASE_URL'] || 'sqlite://blog.db')
+	Sequel.connect(ENV['DATABASE_URL'] ||
+		'postgres://bacatuba:123456@localhost/rdrblog')
 
 	require 'ostruct'
 	Blog = OpenStruct.new(
